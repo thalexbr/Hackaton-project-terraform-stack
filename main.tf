@@ -19,14 +19,16 @@ variable "project" {
   default = "fiap-lab"
 }
 
-#data "aws_vpc" "vpc" {
-#  tags = {
-#    Name = "${var.project}"
-#  }
-#}
+data "aws_vpc" "vpc" {
+  tags = {
+    Name = "${var.project}-${local.ws_name}"
+  }
+  
+  depends_on = ["aws_vpc.vpc"]
+}
 
 data "aws_subnet_ids" "all" {
-  vpc_id = "${aws_vpc.vpc.id}"
+  vpc_id = "${data.aws_vpc.vpc.id}"
 
   tags = {
     Tier = "Public"
