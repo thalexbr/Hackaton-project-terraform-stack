@@ -17,7 +17,7 @@ resource "aws_subnet" "public_igw" {
   availability_zone       = "${data.aws_availability_zones.available.names[count.index]}"
 
   tags = {
-    Name = "${var.project}_public_igw_${data.aws_availability_zones.available.names[count.index]}"
+    Name = "${var.project}_${local.ws_name}_public_igw_${data.aws_availability_zones.available.names[count.index]}"
     Tier = "Public"
     env  = "${local.ws_name}"
   }
