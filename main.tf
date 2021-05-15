@@ -1,3 +1,7 @@
+locals {
+  ws_name = "${terraform.workspace}"
+}
+
 # Specify the provider and access details
 provider "aws" {
   region = "${var.aws_region}"
@@ -17,7 +21,7 @@ variable "project" {
 
 data "aws_vpc" "vpc" {
   tags = {
-    Name = "${var.project}"
+    Name = "${var.project}-${local.ws_name}"
   }
 }
 
@@ -39,10 +43,8 @@ resource "random_shuffle" "random_subnet" {
   result_count = 1
 }
 
-
-
 resource "aws_elb" "web" {
-  name = "hackton-elb"
+  name = "hackton-elb-${local.ws_name}"
 
   subnets         = data.aws_subnet_ids.all.ids
   security_groups = ["${aws_security_group.allow-ssh.id}"]
@@ -96,6 +98,6 @@ resource "aws_instance" "web" {
   }
 
   tags = {
-    Name = "${format("nginx-hackaton-%03d", count.index + 1)}"
+    Name = "${format("nginx-hackaton-${local.ws_name}-%03d", count.index + 1)}"
   }
 }
