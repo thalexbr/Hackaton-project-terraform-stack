@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow-ssh" {
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = "${data.aws_vpc.vpc.id}"
   name        = "allow-ssh-stack-${local.ws_name}"
 
   egress {
