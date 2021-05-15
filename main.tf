@@ -21,7 +21,7 @@ variable "project" {
 
 data "aws_vpc" "vpc" {
   tags = {
-    Name = "${var.project}-${local.ws_name}"
+    Name = "${var.project}"
   }
 }
 
