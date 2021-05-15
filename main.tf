@@ -2,7 +2,7 @@ module "gerar_infra" {
   source = "./modules/infra"  
 }
 
-module "deploy_app" {
-    source = "./modules/deploy_app"
+module "gerar_app" {
+    source = "./modules/gerar_app"
     depends_on = ["gerar_infra"]
 }
