@@ -2,6 +2,10 @@ locals {
   ws_name = "${terraform.workspace}"
 }
 
+module "buildinfra" {
+  source = "./modules/infra"
+}
+
 # Specify the provider and access details
 provider "aws" {
   region = "${var.aws_region}"
@@ -16,14 +20,14 @@ data "template_file" "script" {
 
 
 variable "project" {
-  default = "fiap-lab"
+  default = "fiap-lab-${local.ws_name}"
 }
 
-data "aws_vpc" "vpc" {
-  tags = {
-    Name = "${var.project}"
-  }
-}
+#data "aws_vpc" "vpc" {
+#  tags = {
+#    Name = "${var.project}"
+#  }
+#}
 
 data "aws_subnet_ids" "all" {
   vpc_id = "${data.aws_vpc.vpc.id}"
