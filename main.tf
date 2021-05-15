@@ -28,8 +28,6 @@ data "aws_vpc" "vpc" {
   tags = {
     Name = "${var.project}-${local.ws_name}"
   }
-  
-  depends_on = ["aws_vpc.vpc"]
 }
 
 data "aws_subnet_ids" "all" {
