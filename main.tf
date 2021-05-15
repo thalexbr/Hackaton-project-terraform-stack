@@ -1,8 +1,8 @@
-module "vpc_created" {
+module "create_infra" {
   source = "./modules/infra"  
 }
 
-module "principal" {
-    source = "./modules/principal"
-    depends_on = ["vpc_created"]
+module "deploy_app" {
+    source = "./modules/deploy_app"
+    depends_on = ["create_infra"]
 }
