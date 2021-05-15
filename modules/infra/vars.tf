@@ -1,3 +1,7 @@
+locals {
+  ws_name = "${terraform.workspace}"
+}
+
 data "aws_availability_zones" "available" {}
 
 
