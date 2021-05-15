@@ -26,7 +26,7 @@ variable "project" {
 #}
 
 data "aws_subnet_ids" "all" {
-  vpc_id = "${data.aws_vpc.vpc.id}"
+  vpc_id = "${aws_vpc.vpc.id}"
 
   tags = {
     Tier = "Public"
