@@ -5,7 +5,7 @@ resource "aws_vpc" "vpc" {
 
   tags = {
     Name = "${var.project}-${local.ws_name}"
-    env  = "${var.env}"
+    env  = "${local.ws_name}"
   }
 }
 
@@ -19,6 +19,6 @@ resource "aws_subnet" "public_igw" {
   tags = {
     Name = "${var.project}_public_igw_${data.aws_availability_zones.available.names[count.index]}"
     Tier = "Public"
-    env  = "${var.env}"
+    env  = "${local.ws_name}"
   }
 }

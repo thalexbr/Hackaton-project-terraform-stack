@@ -3,6 +3,6 @@ resource "aws_internet_gateway" "igw" {
 
   tags = {
     Name = "igw-${var.project}-${local.ws_name}"
-    env  = "${var.env}"
+    env  = "${local.ws_name}"
   }
 }
