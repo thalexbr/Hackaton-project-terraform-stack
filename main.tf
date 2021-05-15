@@ -4,5 +4,5 @@ module "gerar_infra" {
 
 module "gerar_app" {
     source = "./modules/gerar_app"
-    depends_on = ["gerar_infra"]
+    #depends_on = ["gerar_infra"]
 }
