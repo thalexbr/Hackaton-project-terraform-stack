@@ -2,10 +2,6 @@ locals {
   ws_name = "${terraform.workspace}"
 }
 
-module "buildinfra" {
-  source = "./modules/infra"
-}
-
 # Specify the provider and access details
 provider "aws" {
   region = "${var.aws_region}"
