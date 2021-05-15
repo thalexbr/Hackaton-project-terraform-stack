@@ -1,3 +1,11 @@
+locals {
+  ws_name = "${terraform.workspace}"
+}
+
+variable "project" {
+  default = "fiap-lab"
+}
+
 resource "aws_vpc" "vpc" {
   cidr_block         = "${var.vpc_cidr}"
   enable_dns_support = "true"
