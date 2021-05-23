@@ -10,7 +10,8 @@ provider "aws" {
 data "template_file" "script" {
   template = "${file("${path.module}/script.sh.tpl")}"
   vars = {
-    ECR_REGISTRY = "${var.ECR_REGISTRY}"
+    ECR_REGISTRY = "${var.ECR_REGISTRY}",
+    PROJ_NAME = "${var.PROJ_NAME}"
   }
 }
 
