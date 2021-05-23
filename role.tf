@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ecr_readOnly_role" {
-  name = "ecr_readOnly_role"
+  name = "ecr_readOnly_role-${local.ws_name}"
 
   assume_role_policy = <<EOF
 {
@@ -18,7 +18,7 @@ resource "aws_iam_role" "ecr_readOnly_role" {
 EOF
 
   tags = {
-      Name = "ecr_readOnly_role"
+      Name = "ecr_readOnly_role-${local.ws_name}"
   }
 }
 
