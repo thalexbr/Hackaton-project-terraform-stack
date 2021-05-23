@@ -24,3 +24,4 @@ variable "INSTANCE_USERNAME" {
 variable "ECR_REGISTRY" {
 }
 
+variable "PROJ_NAME" {}
