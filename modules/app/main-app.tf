@@ -2,21 +2,11 @@ locals {
   ws_name = "${terraform.workspace}"
 }
 
-# Specify the provider and access details
-provider "aws" {
-  region = "${var.aws_region}"
-}
-
 data "template_file" "script" {
   template = "${file("${path.module}/script.sh.tpl")}"
   vars = {
     ECR_REGISTRY = "${var.ECR_REGISTRY}"
   }
-}
-
-
-variable "project" {
-  default = "fiap-lab"
 }
 
 data "aws_vpc" "vpc" {
