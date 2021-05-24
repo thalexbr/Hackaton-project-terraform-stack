@@ -1,4 +1,4 @@
-# Hackathon Project - API para ativação dos pipelines
+# Hackathon Project - Pipeline de Continuous Delivery
 
 > Parte do trabalho final da disciplina **INFRASTRUCTURE AS CODE (IAC) - HACKATHON EXPERIENCE LAB**
 
@@ -6,7 +6,7 @@
 
 ## Instruções
 
-1) Crie os pipelines de aplicação e stack conforme o procedimento no repositório abaixo:
+1) Crie os pipelines de aplicação e stack conforme o procedimento no repositório abaixo, porém a partir do clone deste repositório:
 
 > Dica: substitua os passos de criação dos endpoints de ativação pelas instruções encontradas [aqui](https://github.com/thalexbr/Hackaton-project-api-pipeline-stack)
 
