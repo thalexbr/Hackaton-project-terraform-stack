@@ -23,7 +23,7 @@ EOF
 }
 
 resource "aws_iam_instance_profile" "ecr_readOnly_profile" {
-  name = "ecr_readOnly_profile"
+  name = "ecr_readOnly_profile-${local.ws_name}"
   role = "${aws_iam_role.ecr_readOnly_role.name}"
 }
 
