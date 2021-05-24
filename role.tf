@@ -28,7 +28,7 @@ resource "aws_iam_instance_profile" "ecr_readOnly_profile" {
 }
 
 resource "aws_iam_role_policy" "ecr_readOnly_policy" {
-  name = "ecr_readOnly_policy"
+  name = "ecr_readOnly_policy-${local.ws_name}"
   role = "${aws_iam_role.ecr_readOnly_role.id}"
 
   policy = <<EOF
